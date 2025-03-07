@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorização de pagamento</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="formulario">
+        <img src="https://pedilar.com.br/wp-content/uploads/2021/08/pedilar-logo-c.png" alt="Pedilar Domiciliar" style="width: 20%;">
+        <h1 style="background-color: rgb(52, 52, 185); align-self: center; color: white; padding: 10px; border-radius: 2cap;">Autorização de pagamento</h1>
+ 
+        <div class="entradas">
+            <input type="text" id="nome" placeholder="Nome do solicitante">
+            <input type="text" id="valor" placeholder="Valor da conta">
+            <input type="text" id="favorecido" placeholder="Nome do Favorecido">
+            <input type="text" id="cnpj" placeholder="CNPJ do Favorecido">
+            <input type="date" id="data" placeholder="Data de vencimento" oninput="verificarData()">
+            <select name="pg" id="pagamento">
+                <option value="boleto">Boleto</option>
+                <option value="pix">Pix</option>
+                <option value="cartao">Cartão</option>
+            </select>
+            <input type="text" id="relato" placeholder="Descreva um breve relato">
+        </div>
+        <h1 style="background-color: rgb(52, 52, 185); align-self: center; color: white; padding: 10px; border-radius: 2cap;">Centro de custo</h1>
+ 
+        <div class="entradas">
+            <input type="text" id="setor" placeholder="Setor">
+            <input type="text" id="categoria" placeholder="Categoria">
+        </div>
+       
+        <button onclick="imprimirPedido()" class="botao">Imprimir</button>
+    </div>
+ 
+    <div id="resultado" class="print-area">
+        <div style="display: flex; flex-direction: row; gap: 300px;">
+            <img src="https://pedilar.com.br/wp-content/uploads/2021/08/pedilar-logo-c.png" alt="Pedilar Domiciliar" style="width: 20%;">
+            <h2 id="title">Autorização de pagamento</h2>
+        </div>
+       
+        <p><strong>Solicitante:</strong> <span id="resNome"></span></p>
+        <p><strong>Valor: R$</strong> <span id="resValor"></span></p>
+        <p><strong>Favorecido:</strong> <span id="resFavorecido"></span></p>
+        <p><strong>CNPJ:</strong> <span id="resCNPJ"></span></p>
+        <p><strong>Data de vencimento (dd/mm/aaaa):</strong> <span id="resData"></span></p>
+        <p><strong>Forma de pagamento:</strong> <span id="resPagamento"></span></p>
+        <p><strong>Relato:</strong> <span id="resRelato"></span></p>
+        <h2>Centro de custo</h2>
+        <p><strong>Setor:</strong> <span id="resSetor"></span></p>
+        <p><strong>Categoria:</strong> <span id="resCategoria"></span></p>
+    </div>
+ 
+    <script type="text/javascript" language="javascript" src="scripts.js"></script>
+</body>
+</html>

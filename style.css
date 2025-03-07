@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.entradas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.botao {
+    background-color: rgb(52, 52, 185);
+    align-self: center;
+    color: white;
+    padding: 10px;
+    border-radius: 2cap;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 20px;
+}
+.print-area {
+    display: none;
+    border: 2px solid black;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #a7d0c8;
+}
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .print-area, .print-area * {
+        visibility: visible;
+    }
+    .print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 21cm;
+        height: 29.7cm;
+        page-break-after: always;
+        -webkit-print-color-adjust: exact; /* Garante a impressão das cores no Chrome */
+        print-color-adjust: exact; /* Garante a impressão das cores em outros navegadores */
+    }
+}
