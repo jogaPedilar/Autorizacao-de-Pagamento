@@ -3,6 +3,19 @@ function gerarPedido() {
         alert("VERIFIQUE TODOS Os CAMPOS");
         return true;
     }
+    if(document.getElementById("nome").value.length < 11 || document.getElementById("favorecido").value.length < 11){
+        alert("SOLICITANTE OU FAVORECIDO COM MENOS DE 11 CARACTERES. POR FAVOR, TENTE NOVAMENTE!")
+        return true;
+    }
+    if(document.getElementById("cnpj").value > 18 || document.getElementById("cnpj" < 14)){
+        alert("CNPJ/CPF INVALIDO, VERIFIQUE PONTUAÇÃO!");
+        return true;
+
+    }
+    if(document.getElementById("relato").value.length < 50){
+        alert("RELATO COM MENOS DE 50 CARACTERES. POR FAVOR, TENTE NOVAMENTE!");
+        return true;
+    }
 
     document.getElementById("resNome").textContent = document.getElementById("nome").value;
     document.getElementById("resValor").textContent = document.getElementById("valor").value;
@@ -14,8 +27,9 @@ function gerarPedido() {
     document.getElementById("resCategoria").textContent = document.getElementById("categoria").value;
    
     // Formatar a data para o formato brasileiro
-    let dataInput = document.getElementById("data").value;
-    let dataVencimento = new Date(dataInput);
+    let dataInput = document.getElementById("data").value; // formato "YYYY-MM-DD"
+    let partes = dataInput.split('-'); // divide em [YYYY, MM, DD]
+    let dataVencimento = new Date(partes[0], partes[1] - 1, partes[2]); // mês é zero-indexado
     let dataFormatada = dataVencimento.toLocaleDateString('pt-BR');
     document.getElementById("resData").textContent = dataFormatada;
    
